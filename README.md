@@ -19,9 +19,6 @@ Then I my anonymous cart should be empty
 # Team
 
 Paul Cha
-
 Kwabena Bamfo
-
 Rinay Kumar
-
 Sheena Mathew
