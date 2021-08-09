@@ -1,10 +1,13 @@
 package com.bdd.bestbuy.stepdefs;
 
+import com.bdd.bestbuy.pages.BestBuyHome;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
 public class BestBuyStepdefs {
+
+    private BestBuyHome bestBuyHome;
 
     @Given("I am on the Best Buy home page")
     public void iAmOnTheBestBuyHomePage() {
@@ -28,7 +31,7 @@ public class BestBuyStepdefs {
 
     @When("I click the 'Add to Cart' button next to the laptop")
     public void iClickTheAddToCartButtonNextToTheLaptop() {
-        
+
     }
 
     @Then("I should see a modal window with the cart subtotal")
