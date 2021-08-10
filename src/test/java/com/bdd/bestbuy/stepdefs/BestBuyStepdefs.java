@@ -23,7 +23,7 @@ public class BestBuyStepdefs {
     }
 
     @When("I close the add modal and search for 'macbook pro'")
-    public void iCloseTheAddModalAndSearchForMacbookPro() throws InterruptedException {
+    public void iCloseTheAddModalAndSearchForMacbookPro() {
         // Wait for page to load
         bestBuyHome.waitForPageLoad(10);
 

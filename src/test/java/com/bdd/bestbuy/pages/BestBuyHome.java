@@ -6,13 +6,13 @@ import org.openqa.selenium.WebElement;
 import java.time.Duration;
 
 public class BestBuyHome {
-    private String url = "https://www.bestbuy.com/";
     WebDriver driver;
 
     /*** General ***/
 
     public BestBuyHome(WebDriver driver){
         this.driver = driver;
+        String url = "https://www.bestbuy.com/";
         this.driver.get(url);
     }
 
