@@ -23,25 +23,29 @@ public class BestBuyStepdefs {
     }
 
     @When("I close the add modal and search for 'macbook pro'")
-    public void iCloseTheAddModalAndSearchForMacbookPro() {
+    public void iCloseTheAddModalAndSearchForMacbookPro() throws InterruptedException {
         // Wait for page to load
         bestBuyHome.waitForPageLoad(10);
 
         // Click add modal close button
+        bestBuyHome.closeModal();
 
         // Click searchbar
+        bestBuyHome.getSearchBar().click();
 
         // Send keys "macbook pro" to searchbar
+        bestBuyHome.getSearchBar().sendKeys("macbook pro");
 
         // Click search button
-
+        bestBuyHome.submitSearch().click();
     }
 
     @Then("One of the laptops listed should be 13.3 8GB Memory and 256GB SSD")
     public void oneOfTheLaptopsListedShouldBeGBMemoryAndGBSSD() {
-        String macbookInfo = "MacBook Pro 13.3\" Laptop - Apple M1 chip - 8GB Memory - 256GB SSD (Latest Model) - Space Gray";
+        String macBookDescription = bestBuyHome.getMacbookModel();
 
-        // Assert macbookInfo with label from page
+        // Assert macBookDescription
+        Assert.assertEquals("MacBook Pro 13.3\" Laptop - Apple M1 chip - 8GB Memory - 256GB SSD (Latest Model) - Space Gray", macBookDescription);
 
         // Quit driver
         bestBuyHome.Quit();

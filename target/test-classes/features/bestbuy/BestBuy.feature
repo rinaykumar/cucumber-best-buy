@@ -14,19 +14,19 @@ Feature: Search/Add/Delete MacBook from BestBuy.com
     When I click the 'Add to Cart' button next to the laptop
     Then I should see a modal window with the cart subtotal
 
-  # Kwabena Bamfo
-  Scenario: See Cart with MacBook
-    Given I am on the Best Buy home page
-    And I close the add modal and search for 'macbook pro'
-    And I click the 'Add to Cart' button next to the laptop
-    When I click on the 'Go to Cart' button
-    Then I should see the laptop and the order summary with Total price
-
-  # Sheena Mathew
-  Scenario: Remove MacBook from Cart
-    Given I am on the Best Buy home page
-    And I close the add modal and search for 'macbook pro'
-    And I click the 'Add to Cart' button next to the laptop
-    And I click on the 'Go to Cart' button
-    When I click the 'Remove' link under the item number drop down
-    Then I my anonymous cart should be empty
+#  # Kwabena Bamfo
+#  Scenario: See Cart with MacBook
+#    Given I am on the Best Buy home page
+#    And I close the add modal and search for 'macbook pro'
+#    And I click the 'Add to Cart' button next to the laptop
+#    When I click on the 'Go to Cart' button
+#    Then I should see the laptop and the order summary with Total price
+#
+#  # Sheena Mathew
+#  Scenario: Remove MacBook from Cart
+#    Given I am on the Best Buy home page
+#    And I close the add modal and search for 'macbook pro'
+#    And I click the 'Add to Cart' button next to the laptop
+#    And I click on the 'Go to Cart' button
+#    When I click the 'Remove' link under the item number drop down
+#    Then My anonymous cart should be empty
