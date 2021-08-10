@@ -48,6 +48,10 @@ public class BestBuyHome {
         return driver.findElement(By.xpath("/html/body/div[4]/main/div[10]/div/div/div/div/div/div/div[2]/div[2]/div[4]/div/div[6]/ol/li[2]/div/div/div/div/div/div[2]/div[2]/div[3]/div/div/div/div/div/div/button"));
     }
 
+    public Boolean isAddToCartError() {
+        return driver.findElements(By.className("c-alert")).size() > 0;
+    }
+
     public void switchToCartSubtotalModal() {
         driver.switchTo().activeElement();
     }

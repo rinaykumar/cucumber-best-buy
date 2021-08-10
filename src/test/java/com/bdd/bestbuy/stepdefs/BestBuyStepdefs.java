@@ -25,7 +25,7 @@ public class BestBuyStepdefs {
     @When("I close the add modal and search for 'macbook pro'")
     public void iCloseTheAddModalAndSearchForMacbookPro() {
         // Wait for page to load
-        bestBuyHome.waitForPageLoad(10);
+        bestBuyHome.waitForPageLoad(5);
 
         // Click add modal close button
         bestBuyHome.closeModal();
@@ -42,6 +42,7 @@ public class BestBuyStepdefs {
 
     @Then("One of the laptops listed should be 13.3 8GB Memory and 256GB SSD")
     public void oneOfTheLaptopsListedShouldBeGBMemoryAndGBSSD() {
+        // Get macbook description from page
         String macBookDescription = bestBuyHome.getMacbookModel();
 
         // Assert macBookDescription
@@ -55,18 +56,17 @@ public class BestBuyStepdefs {
 
     @When("I click the 'Add to Cart' button next to the laptop")
     public void iClickTheAddToCartButtonNextToTheLaptop() {
-        // Wait for page to load
-        bestBuyHome.waitForPageLoad(15);
-
         // Click add to cart button
         bestBuyHome.getAddToCartButton().click();
+
+        // Check there isn't an add to cart error message
+        Assert.assertFalse(bestBuyHome.isAddToCartError());
     }
 
     @Then("I should see a modal window with the cart subtotal")
     public void iShouldSeeAModalWindowWithTheCartSubtotal() {
-        // Switch to modal and wait
+        // Switch to modal
         bestBuyHome.switchToCartSubtotalModal();
-        bestBuyHome.waitForPageLoad(15);
 
         // Check modal for cart subtotal label
         String cartSubtotalLabel = bestBuyHome.getCartSubtotalLabel().getText();
