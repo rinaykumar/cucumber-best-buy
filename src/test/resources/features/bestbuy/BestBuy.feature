@@ -29,4 +29,4 @@ Feature: Search/Add/Delete MacBook from BestBuy.com
     And I click the 'Add to Cart' button next to the laptop
     And I click on the 'Go to Cart' button
     When I click the 'Remove' link under the item number drop down
-    Then I my anonymous cart should be empty
+    Then My anonymous cart should be empty

@@ -13,6 +13,8 @@ public class BestBuyStepdefs {
 
     private BestBuyHome bestBuyHome;
 
+    /*** Paul Cha ***/
+
     @Given("I am on the Best Buy home page")
     public void iAmOnTheBestBuyHomePage() {
         WebDriverManager.chromedriver().setup();
@@ -22,22 +24,37 @@ public class BestBuyStepdefs {
 
     @When("I close the add modal and search for 'macbook pro'")
     public void iCloseTheAddModalAndSearchForMacbookPro() {
+        // Wait for page to load
         bestBuyHome.waitForPageLoad(10);
-        bestBuyHome.getAddModalCloseButton().click();
-        bestBuyHome.getSearchBar().click();
-        bestBuyHome.getSearchBar().sendKeys("macbook pro");
-        bestBuyHome.getSearchButton().click();
+
+        // Click add modal close button
+
+        // Click searchbar
+
+        // Send keys "macbook pro" to searchbar
+
+        // Click search button
+
     }
 
     @Then("One of the laptops listed should be 13.3 8GB Memory and 256GB SSD")
     public void oneOfTheLaptopsListedShouldBeGBMemoryAndGBSSD() {
-        Assert.assertEquals("MacBook Pro 13.3\" Laptop - Apple M1 chip - 8GB Memory - 256GB SSD (Latest Model) - Space Gray", bestBuyHome.getMacBookInfo().getText());
+        String macbookInfo = "MacBook Pro 13.3\" Laptop - Apple M1 chip - 8GB Memory - 256GB SSD (Latest Model) - Space Gray";
+
+        // Assert macbookInfo with label from page
+
+        // Quit driver
         bestBuyHome.Quit();
     }
 
+    /*** Rinay Kumar ***/
+
     @When("I click the 'Add to Cart' button next to the laptop")
     public void iClickTheAddToCartButtonNextToTheLaptop() {
+        // Wait for page to load
         bestBuyHome.waitForPageLoad(15);
+
+        // Click add to cart button
         bestBuyHome.getAddToCartButton().click();
     }
 
@@ -51,30 +68,48 @@ public class BestBuyStepdefs {
         String cartSubtotalLabel = bestBuyHome.getCartSubtotalLabel().getText();
         Assert.assertTrue(cartSubtotalLabel.contains("Subtotal"));
 
+        // Quit driver
         bestBuyHome.Quit();
     }
 
+    /*** Kwabena Bamfo ***/
+
     @When("I click on the 'Go to Cart' button")
     public void iClickOnTheGoToCartButton() {
-        bestBuyHome.getGoToCartButton().click();
-        bestBuyHome.waitForPageLoad(5);
+        // Click go to cart button
+
     }
 
     @Then("I should see the laptop and the order summary with Total price")
     public void iShouldSeeTheLaptopAndTheOrderSummaryWithTotalPrice() {
-        Assert.assertEquals("Order Summary", bestBuyHome.getOrderSummaryLabel().getText());
-        Assert.assertEquals("Total", bestBuyHome.getTotalLabel().getText());
+        String macbookInfo = "MacBook Pro 13.3\" Laptop - Apple M1 chip - 8GB Memory - 256GB SSD (Latest Model) - Space Gray";
+
+        // Wait for page to load
+        bestBuyHome.waitForPageLoad(5);
+
+        // Assert macbookInfo with label from page
+
+        // Assert "Order Summary" label appears on page
+
+        // Assert "Total" label appears on page
+
+        // Quit driver
         bestBuyHome.Quit();
     }
 
+    /*** Sheena Mathew ***/
+
     @When("I click the 'Remove' link under the item number drop down")
     public void iClickTheRemoveLinkUnderTheItemNumberDropDown() {
-        bestBuyHome.getRemoveLink().click();
+        // Click remove link
+
     }
 
-    @Then("I my anonymous cart should be empty")
+    @Then("My anonymous cart should be empty")
     public void iMyAnonymousCartShouldBeEmpty() {
-        Assert.assertEquals("Your cart is empty", bestBuyHome.getCartIsEmptyLabel().getText());
+        // Assert "Your cart is empty" label appears on page
+
+        // Quit driver
         bestBuyHome.Quit();
     }
 }
