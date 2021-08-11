@@ -6,7 +6,7 @@ A QEA project that utilizes Selenium and Cucumber to test retail giant Best Buy'
 in a Behavior-Driven Development (BDD) testing framework with four scenarios modeled after user stories  
 and run a CI/CD Jenkins automation server
 
-![Demo](./img/demo.gif)
+![Demo](img/demo.gif)
 
 ### Scenario 1
 ```gherkin
