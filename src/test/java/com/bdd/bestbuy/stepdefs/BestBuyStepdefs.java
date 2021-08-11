@@ -106,13 +106,13 @@ public class BestBuyStepdefs {
     @When("I click the 'Remove' link under the item number drop down")
     public void iClickTheRemoveLinkUnderTheItemNumberDropDown() {
         // Click remove link
-
+        bestBuyHome.getRemoveButton().click();
     }
 
     @Then("My anonymous cart should be empty")
     public void iMyAnonymousCartShouldBeEmpty() {
         // Assert "Your cart is empty" label appears on page
-
+        Assert.assertEquals("Your cart is empty", bestBuyHome.getEmptyCart().getText());
         // Quit driver
         bestBuyHome.Quit();
     }

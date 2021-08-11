@@ -64,5 +64,11 @@ public class BestBuyHome {
 
 
     /*** Sheena Mathew ***/
-    //public WebElement getRemoveButton()
+    public WebElement getRemoveButton() {
+        return driver.findElement(By.xpath("/html/body/div[1]/main/div/div[2]/div[1]/div/div[2]/div[1]/section[1]/div[4]/ul/li/section/div[2]/div[3]/a[1]"));
+    }
+
+    public WebElement getEmptyCart() {
+        return driver.findElement(By.xpath("/html/body/div[1]/main/div/div[2]/div[1]/div/div[1]/div[1]/section[1]/div[1]/div/h1"));
+    }
 }
