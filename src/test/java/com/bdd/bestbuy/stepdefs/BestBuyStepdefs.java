@@ -81,7 +81,9 @@ public class BestBuyStepdefs {
     @When("I click on the 'Go to Cart' button")
     public void iClickOnTheGoToCartButton() {
         // Click go to cart button
-        driver.findElement(By.linkText("Go to Cart")).click();
+         bestBuyHome.iClickOnTheGoToCartButton().click();
+        
+        //driver.findElement(By.linkText("Go to Cart")).click();
     }
 
     @Then("I should see the laptop and the order summary with Total price")
@@ -92,11 +94,12 @@ public class BestBuyStepdefs {
         bestBuyHome.waitForPageLoad(5);
 
         // Assert macbookInfo with label from page
-        Assert.assertEquals(driver.findElement(By.partialLinkText("MacBook Pro 13.3\" Laptop - Apple M1 chip - 8GB Memory - 256GB SSD (Latest Model) - Space Gray")).getText(), macbookInfo);
+        
+        Assert.assertEquals(bestBuyHome.getLaptopInfo().getText(), macbookInfo);
         // Assert "Order Summary" label appears on page
-        Assert.assertEquals(driver.findElement(By.xpath("//h2[contains(text(),'Order Summary')]")).getText(), "Order");
+        Assert.assertEquals(bestBuyHome.getOrderLabel().getText(), "Order");
         // Assert "Total" label appears on page
-        Assert.assertEquals(driver.findElement(By.xpath("//span[contains(text(),'Total')]")).getText(), "Total");
+        Assert.assertEquals(bestBuyHome.getTotalLabel().getText(), "Total");
         // Quit driver
         bestBuyHome.Quit();
     }
