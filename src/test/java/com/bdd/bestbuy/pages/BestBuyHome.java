@@ -61,6 +61,29 @@ public class BestBuyHome {
     }
 
     /*** Kwabena Bamfo ***/
+    
+    
+    public void iClickOnTheGoToCartButton() {
+        // Click go to cart button
+        driver.findElement(By.linkText("Go to Cart")).click();
+    }
+
+   
+    public void iShouldSeeTheLaptopAndTheOrderSummaryWithTotalPrice() {
+        String macbookInfo = "MacBook Pro 13.3\" Laptop - Apple M1 chip - 8GB Memory - 256GB SSD (Latest Model) - Space Gray";
+
+        // Wait for page to load
+        bestBuyHome.waitForPageLoad(5);
+
+        // Assert macbookInfo with label from page
+        Assert.assertEquals(driver.findElement(By.partialLinkText("MacBook Pro 13.3\" Laptop - Apple M1 chip - 8GB Memory - 256GB SSD (Latest Model) - Space Gray")).getText(), macbookInfo);
+        // Assert "Order Summary" label appears on page
+        Assert.assertEquals(driver.findElement(By.xpath("//h2[contains(text(),'Order Summary')]")).getText(), "Order");
+        // Assert "Total" label appears on page
+        Assert.assertEquals(driver.findElement(By.xpath("//span[contains(text(),'Total')]")).getText(), "Total");
+        // Quit driver
+        bestBuyHome.Quit();
+    }
 
 
     /*** Sheena Mathew ***/
