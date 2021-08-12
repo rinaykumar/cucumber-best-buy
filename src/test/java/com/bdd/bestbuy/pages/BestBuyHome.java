@@ -63,12 +63,12 @@ public class BestBuyHome {
     /*** Kwabena Bamfo ***/
     
     
-    public void iClickOnTheGoToCartButton() {
+    public WebElement iClickOnTheGoToCartButton() {
         // Click go to cart button
-        driver.findElement(By.linkText("Go to Cart")).click();
+       return driver.findElement(By.linkText("Go to Cart"));
     }
 
-   
+   /*
     public void iShouldSeeTheLaptopAndTheOrderSummaryWithTotalPrice() {
         String macbookInfo = "MacBook Pro 13.3\" Laptop - Apple M1 chip - 8GB Memory - 256GB SSD (Latest Model) - Space Gray";
 
@@ -84,6 +84,28 @@ public class BestBuyHome {
         // Quit driver
         bestBuyHome.Quit();
     }
+    */
+     public WebElement getLaptopInfo() {
+        // Click go to cart button
+       return driver.findElement(By.partialLinkText("MacBook Pro 13.3\" Laptop - Apple M1 chip - 8GB Memory - 256GB SSD (Latest Model) - Space Gray");
+    }
+
+     public WebElement getOrderLabel() {
+        // Click go to cart button
+        return driver.findElement(By.xpath("//h2[contains(text(),'Order Summary')]");
+    }
+
+     public WebElement getTotalLabel() {
+        // Click go to cart button
+       return driver.findElement(By.xpath("//span[contains(text(),'Total')]");
+    }
+    
+    public void Quit(){
+    
+        driver.quit();
+    
+    }
+                                 
 
 
     /*** Sheena Mathew ***/
