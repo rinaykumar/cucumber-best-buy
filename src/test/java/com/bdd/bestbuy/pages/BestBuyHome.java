@@ -20,6 +20,14 @@ public class BestBuyHome {
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(sec));
     }
 
+    public void dismissModals() {
+        Boolean isSurvey = driver.findElements(By.id("survey_window")).size() > 0;
+        Boolean isGifts = driver.findElements(By.className("gifts-with-purchase-content")).size() > 0;
+
+        if (isSurvey || isGifts)
+            driver.findElement(By.id("gh-search-input")).click();
+    }
+
     public void Quit() {
         driver.quit();
     }
@@ -31,7 +39,7 @@ public class BestBuyHome {
     }
 
     public WebElement submitSearch(){
-        return driver.findElement(By.xpath("/html/body/div[2]/div/div/div[1]/header/div[1]/div/div[1]/div/form/button[2]"));
+        return driver.findElement(By.className("header-search-button"));
     }
 
     public void closeModal(){

@@ -33,6 +33,9 @@ public class BestBuyStepdefs {
         // Click searchbar
         bestBuyHome.getSearchBar().click();
 
+        // Close survey modal
+        bestBuyHome.dismissModals();
+
         // Send keys "macbook pro" to searchbar
         bestBuyHome.getSearchBar().sendKeys("macbook pro");
 
@@ -58,6 +61,9 @@ public class BestBuyStepdefs {
     public void iClickTheAddToCartButtonNextToTheLaptop() {
         // Click add to cart button
         bestBuyHome.getAddToCartButton().click();
+
+        // Close gifts modal
+        bestBuyHome.dismissModals();
 
         // Check there isn't an add to cart error message
         Assert.assertFalse(bestBuyHome.isAddToCartError());
