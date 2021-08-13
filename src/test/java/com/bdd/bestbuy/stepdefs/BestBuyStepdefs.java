@@ -97,7 +97,7 @@ public class BestBuyStepdefs {
         
         Assert.assertEquals(bestBuyHome.getLaptopInfo().getText(), macbookInfo);
         // Assert "Order Summary" label appears on page
-        Assert.assertEquals(bestBuyHome.getOrderLabel().getText(), "Order");
+        Assert.assertEquals(bestBuyHome.getOrderLabel().getText(), "Order Summary");
         // Assert "Total" label appears on page
         Assert.assertEquals(bestBuyHome.getTotalLabel().getText(), "Total");
         // Quit driver
