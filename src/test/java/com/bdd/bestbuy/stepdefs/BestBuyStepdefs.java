@@ -87,7 +87,9 @@ public class BestBuyStepdefs {
     @When("I click on the 'Go to Cart' button")
     public void iClickOnTheGoToCartButton() {
         // Click go to cart button
+        bestBuyHome.iClickOnTheGoToCartButton().click();
 
+        //driver.findElement(By.linkText("Go to Cart")).click();
     }
 
     @Then("I should see the laptop and the order summary with Total price")
@@ -99,10 +101,11 @@ public class BestBuyStepdefs {
 
         // Assert macbookInfo with label from page
 
+        Assert.assertEquals(bestBuyHome.getLaptopInfo().getText(), macbookInfo);
         // Assert "Order Summary" label appears on page
-
+        Assert.assertEquals(bestBuyHome.getOrderLabel().getText(), "Order Summary");
         // Assert "Total" label appears on page
-
+        Assert.assertEquals(bestBuyHome.getTotalLabel().getText(), "Total");
         // Quit driver
         bestBuyHome.Quit();
     }
@@ -112,13 +115,13 @@ public class BestBuyStepdefs {
     @When("I click the 'Remove' link under the item number drop down")
     public void iClickTheRemoveLinkUnderTheItemNumberDropDown() {
         // Click remove link
-
+        bestBuyHome.getRemoveButton().click();
     }
 
     @Then("My anonymous cart should be empty")
     public void iMyAnonymousCartShouldBeEmpty() {
         // Assert "Your cart is empty" label appears on page
-
+        Assert.assertEquals("Your cart is empty", bestBuyHome.getEmptyCart().getText());
         // Quit driver
         bestBuyHome.Quit();
     }

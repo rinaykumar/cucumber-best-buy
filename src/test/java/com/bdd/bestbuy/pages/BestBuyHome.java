@@ -24,7 +24,10 @@ public class BestBuyHome {
         Boolean isSurvey = driver.findElements(By.id("survey_window")).size() > 0;
         Boolean isGifts = driver.findElements(By.className("gifts-with-purchase-content")).size() > 0;
 
-        if (isSurvey || isGifts)
+        if (isSurvey)
+            driver.findElement(By.id("survey_invite_no")).click();
+
+        if (isGifts)
             driver.findElement(By.id("gh-search-input")).click();
     }
 
@@ -70,7 +73,49 @@ public class BestBuyHome {
 
     /*** Kwabena Bamfo ***/
 
+    public WebElement iClickOnTheGoToCartButton() {
+        // Click go to cart button
+        return driver.findElement(By.linkText("Go to Cart"));
+    }
+
+   /*
+    public void iShouldSeeTheLaptopAndTheOrderSummaryWithTotalPrice() {
+        String macbookInfo = "MacBook Pro 13.3\" Laptop - Apple M1 chip - 8GB Memory - 256GB SSD (Latest Model) - Space Gray";
+        // Wait for page to load
+        bestBuyHome.waitForPageLoad(5);
+        // Assert macbookInfo with label from page
+        Assert.assertEquals(driver.findElement(By.partialLinkText("MacBook Pro 13.3\" Laptop - Apple M1 chip - 8GB Memory - 256GB SSD (Latest Model) - Space Gray")).getText(), macbookInfo);
+        // Assert "Order Summary" label appears on page
+        Assert.assertEquals(driver.findElement(By.xpath("//h2[contains(text(),'Order Summary')]")).getText(), "Order");
+        // Assert "Total" label appears on page
+        Assert.assertEquals(driver.findElement(By.xpath("//span[contains(text(),'Total')]")).getText(), "Total");
+        // Quit driver
+        bestBuyHome.Quit();
+    }
+    */
+
+    public WebElement getLaptopInfo() {
+        // Click go to cart button
+        return driver.findElement(By.partialLinkText("MacBook Pro 13.3\" Laptop - Apple M1 chip - 8GB Memory - 256GB SSD (Latest Model) - Space Gray"));
+    }
+
+    public WebElement getOrderLabel() {
+        // Click go to cart button
+        return driver.findElement(By.xpath("//h2[contains(text(),'Order Summary')]"));
+    }
+
+    public WebElement getTotalLabel() {
+        // Click go to cart button
+        return driver.findElement(By.xpath("//span[contains(text(),'Total')]"));
+    }
 
     /*** Sheena Mathew ***/
 
+    public WebElement getRemoveButton() {
+        return driver.findElement(By.xpath("/html/body/div[1]/main/div/div[2]/div[1]/div/div[2]/div[1]/section[1]/div[4]/ul/li/section/div[2]/div[3]/a[1]"));
+    }
+
+    public WebElement getEmptyCart() {
+        return driver.findElement(By.xpath("/html/body/div[1]/main/div/div[2]/div[1]/div/div[1]/div[1]/section[1]/div[1]/div/h1"));
+    }
 }
