@@ -87,9 +87,7 @@ public class BestBuyStepdefs {
     @When("I click on the 'Go to Cart' button")
     public void iClickOnTheGoToCartButton() {
         // Click go to cart button
-        bestBuyHome.iClickOnTheGoToCartButton().click();
-
-        //driver.findElement(By.linkText("Go to Cart")).click();
+        bestBuyHome.getGoToCartButton().click();
     }
 
     @Then("I should see the laptop and the order summary with Total price")
@@ -100,12 +98,16 @@ public class BestBuyStepdefs {
         bestBuyHome.waitForPageLoad(5);
 
         // Assert macbookInfo with label from page
-
         Assert.assertEquals(bestBuyHome.getLaptopInfo().getText(), macbookInfo);
+
         // Assert "Order Summary" label appears on page
+
         Assert.assertEquals(bestBuyHome.getOrderLabel().getText(), "Order Summary");
+
         // Assert "Total" label appears on page
+
         Assert.assertEquals(bestBuyHome.getTotalLabel().getText(), "Total");
+
         // Quit driver
         bestBuyHome.Quit();
     }
@@ -122,6 +124,7 @@ public class BestBuyStepdefs {
     public void iMyAnonymousCartShouldBeEmpty() {
         // Assert "Your cart is empty" label appears on page
         Assert.assertEquals("Your cart is empty", bestBuyHome.getEmptyCart().getText());
+
         // Quit driver
         bestBuyHome.Quit();
     }
