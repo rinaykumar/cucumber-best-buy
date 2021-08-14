@@ -33,6 +33,9 @@ public class BestBuyStepdefs {
         // Click searchbar
         bestBuyHome.getSearchBar().click();
 
+        // Close survey modal
+        bestBuyHome.dismissModals();
+
         // Send keys "macbook pro" to searchbar
         bestBuyHome.getSearchBar().sendKeys("macbook pro");
 
@@ -59,6 +62,9 @@ public class BestBuyStepdefs {
         // Click add to cart button
         bestBuyHome.getAddToCartButton().click();
 
+        // Close gifts modal
+        bestBuyHome.dismissModals();
+
         // Check there isn't an add to cart error message
         Assert.assertFalse(bestBuyHome.isAddToCartError());
     }
@@ -81,7 +87,7 @@ public class BestBuyStepdefs {
     @When("I click on the 'Go to Cart' button")
     public void iClickOnTheGoToCartButton() {
         // Click go to cart button
-
+        bestBuyHome.getGoToCartButton().click();
     }
 
     @Then("I should see the laptop and the order summary with Total price")
@@ -92,10 +98,15 @@ public class BestBuyStepdefs {
         bestBuyHome.waitForPageLoad(5);
 
         // Assert macbookInfo with label from page
+        Assert.assertEquals(bestBuyHome.getLaptopInfo().getText(), macbookInfo);
 
         // Assert "Order Summary" label appears on page
 
+        Assert.assertEquals(bestBuyHome.getOrderLabel().getText(), "Order Summary");
+
         // Assert "Total" label appears on page
+
+        Assert.assertEquals(bestBuyHome.getTotalLabel().getText(), "Total");
 
         // Quit driver
         bestBuyHome.Quit();
@@ -106,12 +117,13 @@ public class BestBuyStepdefs {
     @When("I click the 'Remove' link under the item number drop down")
     public void iClickTheRemoveLinkUnderTheItemNumberDropDown() {
         // Click remove link
-
+        bestBuyHome.getRemoveButton().click();
     }
 
     @Then("My anonymous cart should be empty")
     public void iMyAnonymousCartShouldBeEmpty() {
         // Assert "Your cart is empty" label appears on page
+        Assert.assertEquals("Your cart is empty", bestBuyHome.getEmptyCart().getText());
 
         // Quit driver
         bestBuyHome.Quit();
