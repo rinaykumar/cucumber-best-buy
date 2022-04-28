@@ -3,8 +3,7 @@
 ![Jenkins](https://img.shields.io/badge/jenkins-%232C5263.svg?style=for-the-badge&logo=jenkins&logoColor=white)
 
 A QEA project that utilizes Selenium and Cucumber to test retail giant Best Buy's web application  
-in a Behavior-Driven Development (BDD) testing framework with four scenarios modeled after user stories  
-and run a CI/CD Jenkins automation server
+in a Behavior-Driven Development (BDD) testing framework with four scenarios modeled after user stories and run a CI/CD Jenkins automation server
 
 ![Demo](https://i.ibb.co/1fd9r1c/demo.gif)
 
